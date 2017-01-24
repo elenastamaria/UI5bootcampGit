@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+
+		<title>Login Page</title>
+
+		<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"sap.ui.bootcampWebapp": ""}'>
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script>
+			// sap.ui.getCore().attachInit(function() {
+			// 	new sap.m.Shell({
+			// 		app: new sap.ui.core.ComponentContainer({
+			// 			height : "100%",
+			// 			name : "sap.ui.bootcampWebapp"
+			// 		})
+			// 	}).placeAt("content");
+			// });
+			sap.ui.getCore().attachInit(function(){
+				// new sap.m.Panel({
+				// 	content:[
+				// 			new sap.m.Text({text: "Username"}),
+				// 			new sap.m.Input({placeholder: "Enter Username Here"}), 	
+				// 			new sap.m.Text({text: "Password"}), 
+				// 			new sap.m.Input({placeholder: "Enter Password Here"}), 
+				// 			new sap.m.Button({text: "Login"})
+				// 		],
+				// 	width : "50%",
+				// 	headerText : "Log In"
+					
+				// }).placeAt("content");
+				sap.ui.xmlview({
+					viewName: "sap.ui.bootcampWebapp.view.App"
+				}).placeAt("content");
+			});
+		</script>
+	</head>
+
+	<body class="sapUiBody" id="content">
+		<!--<p>Hello World!</p>-->
+	</body>
+
+</html>
