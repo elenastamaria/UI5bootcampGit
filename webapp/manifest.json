@@ -39,7 +39,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "sap.ui.bootcampWebapp.view.View1",
+			"viewName": "sap.ui.bootcampWebapp.view.App",
 			"type": "XML"
 		},
 		"dependencies": {

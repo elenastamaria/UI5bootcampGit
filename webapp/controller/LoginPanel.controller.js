@@ -1,31 +1,10 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"sap/m/MessageToast",
-	"sap/ui/model/json/JSONModel",
-	"sap/ui/model/resource/ResourceModel"
-	], function(Controller, MessageToast, JSONModel, ResourceModel) {"use strict";
-		return Controller.extend("sap.ui.bootcampWebapp.controller.App", {
-			
-			onInit : function(){
-				//set data model on view
-				var oData = {
-					field : {
-						username : "Username",
-						password : "Password"
-					}
-				};
-				var oModel = new JSONModel(oData);
-				this.getView().setModel(oModel);
-				
-				//set i18n model on view
-				var i18nModel = new ResourceModel({
-					bundleName: "sap.ui.bootcampWebapp.i18n.i18n"
-				});
-				this.getView().setModel(i18nModel, "i18n");
-			},
-			
+		"sap/ui/core/mvc/Controller",
+		"sap/m/MessageToast"
+	], function (Controller, MessageToast) {
+	"use strict";
+	return Controller.extend("sap.ui.bootcampWebapp.controller.LoginPanel", {
 			onLoginPress: function() {
-				
 				// var oUsername = this.getView().byId("username").getValue();
 				// var oPass = this.getView().byId("password").getValue();
 				// var defUsername = "Elaine";
@@ -42,7 +21,6 @@ sap.ui.define([
 				// }else{
 				// 	MessageToast.show("Success!");
 				// }
-				
 				//from i18n
 				var oBundle = this.getView().getModel("i18n").getResourceBundle();
 				//from JSON model
@@ -50,7 +28,18 @@ sap.ui.define([
 				var sPass = this.getView().getModel().getProperty("/field/password");
 				var sMsg = oBundle.getText("helloMsg", [sRecipient, sPass]);
 				MessageToast.show(sMsg);
+			},
+			
+			_getDialog : function () {
+				if (!this._oDialog) {
+					this._oDialog = sap.ui.xmlfragment("sap.ui.bootcampWebapp.view.LoginDialog");
+					this.getView().addDependent(this._oDialog);
+				}
+				return this._oDialog;
+			},
+			
+			onOpenDialog : function () {
+				this._getDialog().open();
 			}
 	});
-
 });

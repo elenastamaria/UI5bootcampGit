@@ -1,24 +1,18 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.m.table"
-	controllerName="sap.ui.bootcampWebapp.controller.App" xmlns:html="http://www.w3.org/1999/xhtml">
-	<Panel>
-		<Text text="Username"></Text>
-		<Input 
-			placeholder="Enter username here..."
-			id= "username"
-			description="Hello {/field/username}"
-			value= "{/field/username}"
-			valueLiveUpdate="true"
-			width= "100%"
-			 ></Input>
-		<Text text="Password"></Text>
-		<Input 
-		placeholder="Enter password here..."
-		value= "{/field/password}"
-		id="password"
-		width="100%"></Input>
-		<Button 
-			text="{i18n>loginButtonText}" 
-			press="onLoginPress"></Button>
-		
-	</Panel>
+	controllerName="sap.ui.bootcampWebapp.controller.App" xmlns:html="http://www.w3.org/1999/xhtml"
+	displayBlock="true">
+	<App class="sapui5BootcampWT">
+		<pages>
+			<Page title="{i18n>homePageTitle}">
+				<content>
+					<mvc:XMLView viewName="sap.ui.bootcampWebapp.view.LoginPanel"/>
+				</content>
+				<footer>
+					<Bar/>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+	
+	
 </mvc:View>
